@@ -665,6 +665,10 @@ class Component extends DCLogic {
   state = { dark: false, menuOpen: false, slideIdx: 0 };
 
   componentDidMount() {
+    // ── Hero video autoplay (needed for JS-rendered elements) ──
+    const vid = document.querySelector('video');
+    if (vid) { vid.muted = true; vid.loop = true; vid.play().catch(() => {}); }
+
     // ── Force-hide curtain after animation ──
     setTimeout(() => {
       const c = document.querySelector('.curtain');
