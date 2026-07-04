@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;400&family=DM+Sans:wght@300;400&family=Jost:wght@300&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{margin:0;padding:0}
+a{text-decoration:none;cursor:pointer}
+button{font-family:inherit;cursor:pointer;border-radius:0}
+
+.sr{opacity:0;transform:translateY(28px);transition:opacity 0.9s cubic-bezier(0.16,1,0.3,1),transform 0.9s cubic-bezier(0.16,1,0.3,1)}
+.sr.in{opacity:1;transform:translateY(0)}
+.sr-fade{opacity:0;transition:opacity 0.9s ease}
+.sr-fade.in{opacity:1}
+.sr-scale{opacity:0;transform:scale(1.06);transition:opacity 1.2s cubic-bezier(0.16,1,0.3,1),transform 1.2s cubic-bezier(0.16,1,0.3,1)}
+.sr-scale.in{opacity:1;transform:scale(1)}
+.sr-l{opacity:0;transform:translateX(-44px);transition:opacity 1s cubic-bezier(0.16,1,0.3,1),transform 1s cubic-bezier(0.16,1,0.3,1)}
+.sr-r{opacity:0;transform:translateX(44px);transition:opacity 1s cubic-bezier(0.16,1,0.3,1),transform 1s cubic-bezier(0.16,1,0.3,1)}
+.sr-l.in,.sr-r.in{opacity:1;transform:translateX(0)}
+
+@keyframes hFade{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.h1{animation:hFade 0.9s cubic-bezier(0.16,1,0.3,1) 1.1s both}
+.h2{animation:hFade 1.1s cubic-bezier(0.16,1,0.3,1) 1.5s both}
+.h3{animation:hFade 0.8s cubic-bezier(0.16,1,0.3,1) 2.0s both}
+.h4{animation:hFade 0.7s cubic-bezier(0.16,1,0.3,1) 2.3s both}
+
+@keyframes curtain{from{transform:translateY(0)}to{transform:translateY(-100%)}}
+@keyframes cLogo{0%{opacity:0;transform:translateY(8px)}35%{opacity:1;transform:translateY(0)}75%{opacity:1}100%{opacity:0}}
+.curtain{position:fixed;inset:0;background:#1A1714;z-index:9999;pointer-events:none;display:flex;align-items:center;justify-content:center;animation:curtain 1.1s cubic-bezier(0.76,0,0.24,1) 0.5s forwards}
+.curtain img{animation:cLogo 1s ease 0.1s both}
+
+.btn-brass{display:inline-block;position:relative;overflow:hidden;color:#8A6A3A;border:1px solid #8A6A3A;background:transparent;cursor:pointer;transition:color 220ms ease}
+.btn-brass::before{content:'';position:absolute;inset:0;background:#8A6A3A;transform:scaleX(0);transform-origin:left center;transition:transform 220ms cubic-bezier(0.76,0,0.24,1)}
+.btn-brass:hover{color:#1A1714}.btn-brass:hover::before{transform:scaleX(1)}
+.btn-brass span{position:relative;z-index:1}
+
+.btn-white{display:inline-block;position:relative;overflow:hidden;color:#F1ECE5;border:1px solid #F1ECE5;background:transparent;cursor:pointer;transition:color 220ms ease}
+.btn-white::before{content:'';position:absolute;inset:0;background:#F1ECE5;transform:scaleX(0);transform-origin:left center;transition:transform 220ms cubic-bezier(0.76,0,0.24,1)}
+.btn-white:hover{color:#1A1714}.btn-white:hover::before{transform:scaleX(1)}
+.btn-white span{position:relative;z-index:1}
+
+.btn-solid{display:inline-block;position:relative;overflow:hidden;background:#8A6A3A;color:#1A1714;border:none;cursor:pointer;transition:color 220ms ease}
+.btn-solid::before{content:'';position:absolute;inset:0;background:#1A1714;transform:scaleX(0);transform-origin:left center;transition:transform 220ms cubic-bezier(0.76,0,0.24,1)}
+.btn-solid:hover{color:#F1ECE5}.btn-solid:hover::before{transform:scaleX(1)}
+.btn-solid span{position:relative;z-index:1}
+
+.lnk{position:relative;color:#8A6A3A;display:inline-block}
+.lnk::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:1px;background:#8A6A3A;transform:scaleX(0);transform-origin:left center;transition:transform 220ms ease}
+.lnk:hover::after{transform:scaleX(1)}
+.lnk-w{position:relative;color:#F1ECE5;display:inline-block}
+.lnk-w::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:1px;background:#F1ECE5;transform:scaleX(0);transform-origin:left center;transition:transform 220ms ease}
+.lnk-w:hover::after{transform:scaleX(1)}
+
+.nav-a{transition:opacity 200ms ease;color:var(--m,#78726C)}
+.nav-a:hover{opacity:0.5}
+
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+@media(max-width:960px){
+  .nav-aux{display:none!important}
+  .intro-grid{flex-direction:column!important}
+  .intro-img{min-height:64vw!important;flex:none!important}
+  .feat-strip{flex-direction:column!important;gap:40px!important}
+  .feat-rule{display:none!important}
+  .making-grid{flex-direction:column!important}
+  .making-img{min-height:60vw!important;flex:none!important}
+  .htb{flex-direction:column!important;gap:40px!important}
+  .fg{grid-template-columns:1fr 1fr!important;gap:40px!important}
+  .img-row{flex-direction:column!important}
+}
+</style>
+</helmet>
+
+<!-- ═══ PAGE CURTAIN ═══ -->
+<div class="curtain">
+  <img src="uploads/Illuminati-White.svg" style="height:22px;display:block" alt="Illuminati">
+</div>
+
+<div style="{{ wrapStyle }}">
+
+<!-- ════════════════════ STICKY NAV ════════════════════ -->
+<div style="position:sticky;top:0;z-index:300">
+
+  <!-- Utility bar -->
+  <div style="background:#231E1B;height:34px;overflow:hidden;display:flex;align-items:center">
+    <div style="display:flex;white-space:nowrap;animation:marquee 38s linear infinite;flex-shrink:0">
+      <span style="font:300 11px/1 'DM Sans',sans-serif;color:#F1ECE5;letter-spacing:0.06em;padding-right:80px">New <span style="text-decoration:underline;text-underline-offset:2px">Signature Collection</span> &nbsp;·&nbsp; Now Available to the Trade &nbsp;·&nbsp; New <span style="text-decoration:underline;text-underline-offset:2px">Concentric Series 2026</span> &nbsp;·&nbsp; British Handcrafted Lighting &nbsp;·&nbsp;</span>
+      <span style="font:300 11px/1 'DM Sans',sans-serif;color:#F1ECE5;letter-spacing:0.06em;padding-right:80px">New <span style="text-decoration:underline;text-underline-offset:2px">Signature Collection</span> &nbsp;·&nbsp; Now Available to the Trade &nbsp;·&nbsp; New <span style="text-decoration:underline;text-underline-offset:2px">Concentric Series 2026</span> &nbsp;·&nbsp; British Handcrafted Lighting &nbsp;·&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- Main nav bar -->
+  <div style="background:var(--g);height:64px;display:flex;align-items:center;border-bottom:1px solid var(--r);position:relative;overflow:hidden">
+    <div style="display:flex;align-items:center;height:100%;flex-shrink:0">
+      <button onClick="{{ toggleMenu }}" style="background:{{ menuBtnBg }};height:100%;min-width:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;border:none;flex-shrink:0">
+        <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#F1ECE5" stroke-width="1.3"><line x1="1" y1="1" x2="15" y2="15"></line><line x1="15" y1="1" x2="1" y2="15"></line></svg>
+          <span style="font:400 7px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:#F1ECE5">CLOSE</span>
+        </sc-if>
+        <sc-if value="{{ menuClosed }}" hint-placeholder-val="{{ true }}">
+          <svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="#F1ECE5" stroke-width="1.3"><line x1="0" y1="1" x2="18" y2="1"></line><line x1="0" y1="6" x2="18" y2="6"></line><line x1="0" y1="11" x2="18" y2="11"></line></svg>
+          <span style="font:400 7px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:#F1ECE5">MENU</span>
+        </sc-if>
+      </button>
+      <div class="nav-aux" style="display:flex;align-items:center">
+        <div style="width:1px;height:28px;background:var(--r);margin:0 20px"></div>
+        <div style="display:flex;gap:20px;align-items:center">
+          <a class="nav-a" style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.16em">TRADE ↗</a>
+          <div style="width:1px;height:12px;background:var(--r)"></div>
+          <a class="nav-a" style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.16em">DESIGN CONSULTATION</a>
+        </div>
+      </div>
+    </div>
+    <div style="position:absolute;left:50%;transform:translateX(-50%);pointer-events:none">
+      <sc-if value="{{ isDark }}" hint-placeholder-val="{{ false }}">
+        <img src="uploads/Illuminati-White.svg" style="height:20px;display:block" alt="Illuminati Lighting">
+      </sc-if>
+      <sc-if value="{{ isLight }}" hint-placeholder-val="{{ true }}">
+        <img src="uploads/Illuminati-Black.svg" style="height:20px;display:block" alt="Illuminati Lighting">
+      </sc-if>
+    </div>
+    <div style="margin-left:auto;display:flex;align-items:center;gap:20px;padding-right:24px;flex-shrink:0">
+      <button style="background:none;border:none;padding:0;display:flex;align-items:center;cursor:pointer">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1" style="color:var(--p)"><circle cx="9" cy="9" r="5.5"></circle><line x1="13.5" y1="13.5" x2="17" y2="17"></line></svg>
+      </button>
+      <button onClick="{{ toggleDark }}" style="background:none;border:none;padding:0;display:flex;align-items:center;cursor:pointer;opacity:0.75">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1" style="color:var(--p)"><path d="M16 10.5 A6 6 0 1 1 9.5 4 A4.5 4.5 0 0 0 16 10.5Z" fill="currentColor"></path></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mega-menu -->
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="background:var(--s);border-top:1px solid var(--r)">
+      <div style="padding:44px 40px 0">
+        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:32px;margin-bottom:36px">
+          <div>
+            <p style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:#8A6A3A;padding-bottom:10px;border-bottom:1px solid #8A6A3A;margin-bottom:20px">LIGHTING</p>
+            <div style="display:flex;flex-direction:column;gap:11px;margin-bottom:20px">
+              <a style="font:300 13px/1 'DM Sans',sans-serif;color:var(--p)">All Lighting</a>
+              <a style="font:300 13px/1 'DM Sans',sans-serif;color:#8A6A3A">Signature</a>
+              <a style="font:300 13px/1 'DM Sans',sans-serif;color:var(--p)">Essentials</a>
+              <a style="font:300 13px/1 'DM Sans',sans-serif;color:var(--p)">Healthy Living</a>
+              <a style="font:300 13px/1 'DM Sans',sans-serif;color:var(--p)">Architectural</a>
+              <a style="font:300 13px/1 'DM Sans',sans-serif;color:var(--p)">A-LED</a>
+              <a style="font:300 13px/1 'DM Sans',sans-serif;color:var(--p)">Outdoor</a>
+            </div>
+            <button style="background:none;color:#8A6A3A;font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.14em;padding:10px 20px;border:1px solid #8A6A3A;cursor:pointer">BROWSE ALL →</button>
+          </div>
+          <div>
+            <p style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:var(--m);padding-bottom:10px;margin-bottom:20px">BESPOKE</p>
+            <div style="display:flex;flex-direction:column;gap:11px;margin-bottom:20px">
+              <a style="font:300 13px/1 'DM Sans',sans-serif;color:var(--p)">Premium Custom Lighting</a>
+              <a style="font:300 13px/1 'DM Sans',sans-serif;color:var(--p)">Designer Support</a>
+              <a style="font:300 13px/1 'DM Sans',sans-serif;color:var(--p)">Your Design</a>
+              <a style="font:300 13px/1 'DM Sans',sans-serif;color:var(--p)">Case Studies</a>
+            </div>
+            <button style="background:none;color:#8A6A3A;font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.14em;padding:10px 20px;border:1px solid #8A6A3A;cursor:pointer">START A BRIEF →</button>
+          </div>
+          <div>
+            <p style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:var(--m);padding-bottom:10px;margin-bottom:20px">STUDIO</p>
+            <div style="display:flex;flex-direction:column;gap:11px;margin-bottom:20px">
+              <a style="font:300 13px/1 'DM Sans',sans-serif;color:var(--p)">Site Visits &amp; Surveys</a>
+              <a style="font:300 13px/1 'DM Sans',sans-serif;color:var(--p)">Lighting Design</a>
+              <a style="font:300 13px/1 'DM Sans',sans-serif;color:var(--p)">Installation</a>
+              <a style="font:300 13px/1 'DM Sans',sans-serif;color:var(--p)">Control Systems</a>
+              <a style="font:300 13px/1 'DM Sans',sans-serif;color:var(--p)">Project Support</a>
+            </div>
+            <button style="background:none;color:#8A6A3A;font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.14em;padding:10px 20px;border:1px solid #8A6A3A;cursor:pointer">BOOK A VISIT →</button>
+          </div>
+          <div>
+            <p style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:var(--m);padding-bottom:10px;margin-bottom:20px">SECTORS</p>
+            <div style="display:flex;flex-direction:column;gap:11px;margin-bottom:20px">
+              <a style="font:300 13px/1 'DM Sans',sans-serif;color:var(--p)">Residential</a>
+              <a style="font:300 13px/1 'DM Sans',sans-serif;color:var(--p)">Hospitality</a>
+              <a style="font:300 13px/1 'DM Sans',sans-serif;color:var(--p)">Commercial</a>
+              <a style="font:300 13px/1 'DM Sans',sans-serif;color:var(--p)">Educational</a>
+              <a style="font:300 13px/1 'DM Sans',sans-serif;color:var(--p)">Sports</a>
+            </div>
+            <button style="background:none;color:#8A6A3A;font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.14em;padding:10px 20px;border:1px solid #8A6A3A;cursor:pointer">VIEW PROJECTS →</button>
+          </div>
+          <div>
+            <p style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:var(--m);padding-bottom:10px;margin-bottom:20px">COMPANY</p>
+            <div style="display:flex;flex-direction:column;gap:11px;margin-bottom:20px">
+              <a style="font:300 13px/1 'DM Sans',sans-serif;color:var(--p)">About Us</a>
+              <a style="font:300 13px/1 'DM Sans',sans-serif;color:var(--p)">Showrooms</a>
+              <a style="font:300 13px/1 'DM Sans',sans-serif;color:var(--p)">How to Buy</a>
+              <a style="font:300 13px/1 'DM Sans',sans-serif;color:var(--p)">Catalogues</a>
+              <a style="font:300 13px/1 'DM Sans',sans-serif;color:var(--p)">Contact Us</a>
+            </div>
+            <button style="background:none;color:#8A6A3A;font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.14em;padding:10px 20px;border:1px solid #8A6A3A;cursor:pointer">GET IN TOUCH →</button>
+          </div>
+        </div>
+        <div style="display:flex;margin:0 -40px">
+          <div style="flex:1;height:130px;overflow:hidden"><image-slot id="snp1" placeholder="Project photo" shape="rect" fit="cover" style="width:100%;height:130px;display:block"></image-slot></div>
+          <div style="flex:1;height:130px;overflow:hidden"><image-slot id="snp2" placeholder="Project photo" shape="rect" fit="cover" style="width:100%;height:130px;display:block"></image-slot></div>
+          <div style="flex:1;height:130px;overflow:hidden"><image-slot id="snp3" placeholder="Project photo" shape="rect" fit="cover" style="width:100%;height:130px;display:block"></image-slot></div>
+          <div style="flex:1;height:130px;overflow:hidden"><image-slot id="snp4" placeholder="Project photo" shape="rect" fit="cover" style="width:100%;height:130px;display:block"></image-slot></div>
+          <div style="flex:1;height:130px;overflow:hidden"><image-slot id="snp5" placeholder="Project photo" shape="rect" fit="cover" style="width:100%;height:130px;display:block"></image-slot></div>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+
+
+<!-- ════════════════════ BREADCRUMB (Atom 09) ════════════════════ -->
+<div style="background:var(--g);border-bottom:1px solid var(--r);padding:0 56px;height:36px;display:flex;align-items:center;gap:0">
+  <a style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.16em;color:var(--m);cursor:pointer">LIGHTING</a>
+  <span style="font:400 9px/1 'DM Sans',sans-serif;color:#8A6A3A;margin:0 12px">/</span>
+  <span style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.16em;color:var(--p)">SIGNATURE</span>
+</div>
+
+
+<!-- ════════════════════ SECTION 01: HERO ════════════════════ -->
+<section class="section-hero" data-screen-label="01 Hero" style="height:65vh;min-height:500px;background:#1A1714;position:relative;overflow:hidden;display:flex;flex-direction:column">
+
+  <div data-px="0.22" style="position:absolute;top:-16%;left:0;right:0;bottom:-16%;z-index:0">
+    <image-slot id="sig-hero" placeholder="Signature Collection — pendant or wall light, brass finish, warm studio lighting, architectural backdrop" shape="rect" fit="cover" style="position:absolute;inset:0;width:100%;height:100%;display:block"></image-slot>
+    <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(26,23,20,0.97) 0%,rgba(26,23,20,0.3) 55%,rgba(26,23,20,0.08) 100%)"></div>
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse 64% 54% at 0% 100%,rgba(52,27,4,0.6) 0%,transparent 52%)"></div>
+  </div>
+
+  <div style="flex:1;position:relative;z-index:1"></div>
+
+  <div style="position:relative;z-index:1;padding:0 56px 56px;max-width:680px">
+    <p class="h1" style="font:400 10px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:#8A6A3A;margin-bottom:10px">SIGNATURE COLLECTION</p>
+    <div class="h1" style="width:40px;height:1px;background:#8A6A3A;margin-bottom:24px"></div>
+    <h1 class="h2" style="font:200 52px/1.06 'Outfit',sans-serif;color:#F1ECE5;letter-spacing:-0.01em;margin-bottom:20px">Trade only.<br>In-stock.</h1>
+    <p class="h3" style="font:300 14px/1 'DM Sans',sans-serif;color:#78726C;margin-bottom:32px">Premium handcrafted pieces. Ready for immediate delivery.</p>
+    <a class="h4 btn-brass" href="https://illuminatilighting.co.uk/trade" target="_blank" style="font:400 11px/1 'DM Sans',sans-serif;letter-spacing:0.18em;padding:13px 28px"><span>VIEW TRADE PORTAL →</span></a>
+  </div>
+
+</section>
+
+
+<!-- ════════════════════ SECTION 02: INTRO ════════════════════ -->
+<section class="section-intro" data-screen-label="02 Intro" style="background:var(--g);overflow:hidden">
+
+  <div class="intro-grid" style="display:flex;align-items:stretch;min-height:600px">
+
+    <!-- Left column (5 parts) -->
+    <div style="flex:5;padding:100px 56px 100px 56px;display:flex;flex-direction:column;justify-content:center">
+      <p class="sr" style="font:400 10px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:#8A6A3A;margin-bottom:12px">THE SIGNATURE COLLECTION</p>
+      <div class="sr-fade" data-delay="80" style="width:40px;height:1px;background:#8A6A3A;margin-bottom:24px"></div>
+      <h2 class="sr" data-delay="120" style="font:400 32px/1.2 'Outfit',sans-serif;color:var(--p);margin-bottom:32px">Handcrafted lighting<br>for the most considered<br>interiors.</h2>
+      <p class="sr" data-delay="200" style="font:300 15px/1.85 'DM Sans',sans-serif;color:#78726C;margin-bottom:32px">The Signature Collection represents Illuminati's core trade offering — individually crafted pieces available in-stock and ready for delivery. Each piece is finished to order in a choice of materials and can be specified across residential, hospitality and commercial projects.</p>
+
+      <!-- Data strip -->
+      <div class="sr" data-delay="300" style="display:flex;align-items:stretch">
+        <div style="padding-right:24px">
+          <p style="font:300 10px/1 'Jost',sans-serif;letter-spacing:0.14em;color:#78726C;margin-bottom:10px">LEAD TIME</p>
+          <p style="font:400 18px/1 'Outfit',sans-serif;color:#8A6A3A">2–3 weeks</p>
+        </div>
+        <div style="width:1px;background:var(--r);flex-shrink:0;margin:0 24px"></div>
+        <div>
+          <p style="font:300 10px/1 'Jost',sans-serif;letter-spacing:0.14em;color:#78726C;margin-bottom:10px">AVAILABILITY</p>
+          <p style="font:400 18px/1 'Outfit',sans-serif;color:#8A6A3A">Trade only</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gap between columns -->
+    <div style="width:56px;flex-shrink:0"></div>
+
+    <!-- Right column (7 parts) — full-bleed portrait image -->
+    <div class="intro-img" style="flex:7;position:relative;overflow:hidden;min-height:480px">
+      <div data-px="0.12" style="position:absolute;top:-10%;bottom:-10%;left:0;right:0">
+        <image-slot id="sig-intro" placeholder="Signature Collection atmospheric product photography — portrait orientation" shape="rect" fit="cover" style="position:absolute;inset:0;width:100%;height:100%;display:block"></image-slot>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ════════════════════ SECTION 03: KEY FEATURES ════════════════════ -->
+<section class="section-key-features" data-screen-label="03 Key Features" style="background:var(--s);padding:80px 56px">
+
+  <div style="margin-bottom:48px">
+    <p class="sr" style="font:400 10px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:#8A6A3A;margin-bottom:12px">WHY SPECIFY SIGNATURE</p>
+    <div class="sr-fade" data-delay="80" style="width:40px;height:1px;background:#8A6A3A;margin-bottom:20px"></div>
+    <h2 class="sr" data-delay="120" style="font:400 28px/1.2 'Outfit',sans-serif;color:var(--p)">Built to the highest standard.</h2>
+  </div>
+
+  <!-- 4-column strip -->
+  <div class="feat-strip" style="display:flex;align-items:stretch">
+
+    <!-- Col 01 -->
+    <div class="sr" style="flex:1;padding-left:24px">
+      <p style="font:400 10px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:#8A6A3A;margin-bottom:12px">CRAFTSMANSHIP</p>
+      <p style="font:400 16px/1.25 'Outfit',sans-serif;color:var(--p);margin-bottom:10px">British Made</p>
+      <p style="font:300 13px/1.7 'DM Sans',sans-serif;color:#78726C">Every piece is handcrafted in our UK workshop by our own team.</p>
+    </div>
+
+    <div class="feat-rule" style="width:1px;background:var(--r);flex-shrink:0;margin:0"></div>
+
+    <!-- Col 02 -->
+    <div class="sr" data-delay="80" style="flex:1;padding-left:24px">
+      <p style="font:400 10px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:#8A6A3A;margin-bottom:12px">MATERIALS</p>
+      <p style="font:400 16px/1.25 'Outfit',sans-serif;color:var(--p);margin-bottom:10px">Premium Finishes</p>
+      <p style="font:300 13px/1.7 'DM Sans',sans-serif;color:#78726C">Aged brass, oxidised stone, crystal and architectural glass.</p>
+    </div>
+
+    <div class="feat-rule" style="width:1px;background:var(--r);flex-shrink:0;margin:0"></div>
+
+    <!-- Col 03 -->
+    <div class="sr" data-delay="160" style="flex:1;padding-left:24px">
+      <p style="font:400 10px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:#8A6A3A;margin-bottom:12px">SPECIFICATION</p>
+      <p style="font:400 16px/1.25 'Outfit',sans-serif;color:var(--p);margin-bottom:10px">Trade Pricing</p>
+      <p style="font:300 13px/1.7 'DM Sans',sans-serif;color:#78726C">Exclusive trade rates. Contact our team for your price list.</p>
+    </div>
+
+    <div class="feat-rule" style="width:1px;background:var(--r);flex-shrink:0;margin:0"></div>
+
+    <!-- Col 04 -->
+    <div class="sr" data-delay="240" style="flex:1;padding-left:24px">
+      <p style="font:400 10px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:#8A6A3A;margin-bottom:12px">DELIVERY</p>
+      <p style="font:400 16px/1.25 'Outfit',sans-serif;color:var(--p);margin-bottom:10px">Fast Turnaround</p>
+      <p style="font:300 13px/1.7 'DM Sans',sans-serif;color:#78726C">In-stock pieces available for delivery within 2–3 weeks.</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ════════════════════ SECTION 04: HOW THEY ARE MADE ════════════════════ -->
+<section class="section-making" data-screen-label="04 How They Are Made" style="background:#1A1714;display:flex;min-height:640px">
+
+  <!-- Left column: full-bleed image -->
+  <div class="making-img" style="flex:1;position:relative;overflow:hidden">
+    <div data-px="0.14" style="position:absolute;top:-12%;bottom:-12%;left:0;right:0">
+      <image-slot id="sig-workshop" placeholder="Workshop photography — hands working on a piece, materials close up, warm light" shape="rect" fit="cover" style="position:absolute;inset:0;width:100%;height:100%;display:block"></image-slot>
+    </div>
+  </div>
+
+  <!-- Right column: dark surface, padded content -->
+  <div style="flex:1;background:#231E1B;padding:80px;display:flex;flex-direction:column;justify-content:center">
+
+    <p class="sr" style="font:400 10px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:#8A6A3A;margin-bottom:12px">HOW THEY ARE MADE</p>
+    <div class="sr-fade" data-delay="80" style="width:40px;height:1px;background:#8A6A3A;margin-bottom:24px"></div>
+    <h2 class="sr" data-delay="120" style="font:400 28px/1.2 'Outfit',sans-serif;color:#F1ECE5;margin-bottom:24px">Made in the UK.<br>From brief to installation.</h2>
+    <p class="sr" data-delay="200" style="font:300 15px/1.85 'DM Sans',sans-serif;color:#78726C;margin-bottom:40px">Each Signature piece begins as a drawing. Our in-house team translates every specification into a handcrafted fixture, selecting materials, forming structures and applying finishes entirely within our Chelmsford workshop. Nothing is outsourced.</p>
+
+    <!-- Data stack -->
+    <div class="sr" data-delay="300">
+
+      <div style="padding:16px 0;border-top:1px solid #2E2825">
+        <p style="font:300 9px/1 'Jost',sans-serif;letter-spacing:0.14em;color:#78726C;margin-bottom:8px">WORKSHOP</p>
+        <p style="font:300 13px/1 'DM Sans',sans-serif;color:#F1ECE5">Chelmsford, Essex</p>
+      </div>
+
+      <div style="padding:16px 0;border-top:1px solid #2E2825">
+        <p style="font:300 9px/1 'Jost',sans-serif;letter-spacing:0.14em;color:#78726C;margin-bottom:8px">TEAM</p>
+        <p style="font:300 13px/1 'DM Sans',sans-serif;color:#F1ECE5">In-house designers and craftspeople</p>
+      </div>
+
+      <div style="padding:16px 0;border-top:1px solid #2E2825;border-bottom:1px solid #2E2825">
+        <p style="font:300 9px/1 'Jost',sans-serif;letter-spacing:0.14em;color:#78726C;margin-bottom:8px">PROCESS</p>
+        <p style="font:300 13px/1 'DM Sans',sans-serif;color:#F1ECE5">Hand-finished to specification</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ════════════════════ SECTION 05: IMAGERY ════════════════════ -->
+<section class="section-imagery" data-screen-label="05 Imagery" style="background:#1A1714;overflow:hidden">
+
+  <!-- Full-width image -->
+  <div style="width:100%">
+    <image-slot id="sig-img-wide" placeholder="SIGNATURE COLLECTION — full-width atmospheric product photography" shape="rect" fit="cover" style="width:100%;aspect-ratio:16/7;display:block"></image-slot>
+  </div>
+
+  <!-- Two images side by side -->
+  <div class="img-row" style="display:flex">
+    <div style="flex:5">
+      <image-slot id="sig-img-portrait" placeholder="PRODUCT PHOTOGRAPHY — Signature pendant detail, brass finish and materials" shape="rect" fit="cover" style="width:100%;aspect-ratio:4/5;display:block"></image-slot>
+    </div>
+    <div style="flex:7">
+      <image-slot id="sig-img-interior" placeholder="INSTALLED INTERIOR SHOT — Signature lighting in luxury residential or hospitality setting" shape="rect" fit="cover" style="width:100%;aspect-ratio:4/5;display:block"></image-slot>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ════════════════════ SECTION 06: HOW TO BUY ════════════════════ -->
+<section class="section-how-to-buy" data-screen-label="06 How To Buy" style="background:var(--s)">
+  <div style="height:1px;background:var(--r)"></div>
+  <div style="padding:80px 56px">
+    <div class="htb" style="display:flex;align-items:center;justify-content:space-between;gap:60px">
+      <div class="sr-l">
+        <p style="font:400 10px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:#8A6A3A;margin-bottom:12px">HOW TO BUY</p>
+        <div style="width:40px;height:1px;background:#8A6A3A;margin-bottom:24px"></div>
+        <h2 style="font:400 32px/1.15 'Outfit',sans-serif;color:var(--p);margin-bottom:16px">Find us in showrooms<br>across the UK and beyond.</h2>
+        <p style="font:300 14px/1.7 'DM Sans',sans-serif;color:#78726C">Trade, retail and distributor partners worldwide.</p>
+      </div>
+      <div class="sr-r" style="flex-shrink:0">
+        <a class="btn-solid" style="font:400 11px/1 'DM Sans',sans-serif;letter-spacing:0.18em;padding:16px 40px;white-space:nowrap"><span>FIND A SHOWROOM →</span></a>
+      </div>
+    </div>
+  </div>
+  <div style="height:1px;background:var(--r)"></div>
+</section>
+
+
+<!-- ════════════════════ FOOTER ════════════════════ -->
+<footer class="section-footer" data-screen-label="Footer" style="background:#1A1714;padding:64px 56px 0">
+  <div class="fg" style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1.5fr;gap:40px;padding-bottom:48px">
+    <div>
+      <div style="margin-bottom:20px"><img src="uploads/Illuminati-White.svg" style="height:20px;display:block" alt="Illuminati"></div>
+      <p style="font:300 13px/1.85 'DM Sans',sans-serif;color:#78726C;margin-bottom:24px;max-width:280px">British handcrafted lighting for the hospitality, residential, and commercial sectors.</p>
+      <div style="display:flex;gap:16px;align-items:center">
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1" style="color:#78726C"><rect x="3" y="3" width="14" height="14" rx="4"></rect><circle cx="10" cy="10" r="3.5"></circle><circle cx="14.5" cy="5.5" r="0.5" fill="currentColor"></circle></svg>
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1" style="color:#78726C"><rect x="3" y="4" width="14" height="12"></rect><path d="M3 7 L10 12 L17 7"></path></svg>
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1" style="color:#78726C"><circle cx="10" cy="10" r="7"></circle><path d="M4 10 Q7 6 10 10 Q13 14 16 10"></path></svg>
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1" style="color:#78726C"><rect x="4" y="3" width="12" height="14"></rect><line x1="7" y1="8" x2="13" y2="8"></line><line x1="7" y1="11" x2="10" y2="11"></line></svg>
+      </div>
+    </div>
+    <div>
+      <p style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:#78726C;margin-bottom:20px">LIGHTING</p>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <a style="font:300 12px/1 'DM Sans',sans-serif;color:#8A6A3A">Signature</a>
+        <a style="font:300 12px/1 'DM Sans',sans-serif;color:#F1ECE5">Essentials</a>
+        <a style="font:300 12px/1 'DM Sans',sans-serif;color:#F1ECE5">Healthy Living</a>
+        <a style="font:300 12px/1 'DM Sans',sans-serif;color:#F1ECE5">Architectural</a>
+        <a style="font:300 12px/1 'DM Sans',sans-serif;color:#F1ECE5">A-LED</a>
+        <a style="font:300 12px/1 'DM Sans',sans-serif;color:#F1ECE5">Outdoor</a>
+      </div>
+    </div>
+    <div>
+      <p style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:#78726C;margin-bottom:20px">SERVICES</p>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <a style="font:300 12px/1 'DM Sans',sans-serif;color:#F1ECE5">Bespoke</a>
+        <a style="font:300 12px/1 'DM Sans',sans-serif;color:#F1ECE5">Studio</a>
+        <a style="font:300 12px/1 'DM Sans',sans-serif;color:#F1ECE5">Collaborations</a>
+        <a style="font:300 12px/1 'DM Sans',sans-serif;color:#F1ECE5">Sectors</a>
+      </div>
+    </div>
+    <div>
+      <p style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:#78726C;margin-bottom:20px">COMPANY</p>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <a style="font:300 12px/1 'DM Sans',sans-serif;color:#F1ECE5">About Us</a>
+        <a style="font:300 12px/1 'DM Sans',sans-serif;color:#F1ECE5">Showrooms</a>
+        <a style="font:300 12px/1 'DM Sans',sans-serif;color:#F1ECE5">Catalogues</a>
+        <a style="font:300 12px/1 'DM Sans',sans-serif;color:#F1ECE5">How to Buy</a>
+        <a style="font:300 12px/1 'DM Sans',sans-serif;color:#F1ECE5">Contact</a>
+      </div>
+    </div>
+    <div>
+      <p style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:#78726C;margin-bottom:20px">CONTACT</p>
+      <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:16px">
+        <p style="font:300 11px/1.6 'Jost',sans-serif;color:#78726C">Illuminati Lighting UK Ltd</p>
+        <p style="font:300 11px/1.6 'Jost',sans-serif;color:#78726C">Unit 4, Meridian Trade Park</p>
+        <p style="font:300 11px/1.6 'Jost',sans-serif;color:#78726C">Birmingham, B11 2AJ</p>
+      </div>
+      <p style="font:300 11px/1.6 'Jost',sans-serif;color:#78726C">+44 (0)121 000 0000</p>
+      <p style="font:300 11px/1.6 'Jost',sans-serif;color:#8A6A3A"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6f1c1b1a0b06002f0603031a0206010e1b06030608071b060108410c00411a04">[email&#160;protected]</a></p>
+    </div>
+  </div>
+  <div style="height:1px;background:#2E2825"></div>
+  <div style="padding:20px 0;display:flex;justify-content:space-between;align-items:center">
+    <p style="font:300 10px/1 'Jost',sans-serif;color:#78726C">© 2026 Illuminati Lighting UK Ltd</p>
+    <div style="display:flex;gap:16px;align-items:center">
+      <a style="font:300 10px/1 'Jost',sans-serif;color:#78726C">Privacy Policy</a>
+      <span style="color:#2E2825">·</span>
+      <a style="font:300 10px/1 'Jost',sans-serif;color:#78726C">Terms &amp; Conditions</a>
+      <span style="color:#2E2825">·</span>
+      <a style="font:300 10px/1 'Jost',sans-serif;color:#78726C">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+</div>
+</x-dc>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/x-dc" data-dc-script data-props="{
+  &quot;$preview&quot;: { &quot;width&quot;: 1440 },
+  &quot;darkMode&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: false, &quot;section&quot;: &quot;Appearance&quot; }
+}">
+class Component extends DCLogic {
+  state = { dark: false, menuOpen: false };
+
+  componentDidMount() {
+    setTimeout(() => {
+      const c = document.querySelector('.curtain');
+      if (c) c.style.display = 'none';
+    }, 1800);
+
+    // Parallax
+    const pxEls = Array.from(document.querySelectorAll('[data-px]'));
+    const onScroll = () => {
+      pxEls.forEach(el => {
+        const parent = el.parentElement;
+        if (!parent) return;
+        const rect = parent.getBoundingClientRect();
+        const vh = window.innerHeight;
+        const rate = parseFloat(el.getAttribute('data-px')) || 0.2;
+        const progress = -(rect.top - vh / 2) / (vh / 2 + rect.height / 2);
+        el.style.transform = 'translateY(' + (progress * rate * 80) + 'px)';
+      });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // Scroll reveal
+    const revealEl = (el) => {
+      const delay = parseInt(el.getAttribute('data-delay') || '0', 10);
+      setTimeout(() => el.classList.add('in'), delay);
+    };
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          revealEl(entry.target);
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0, rootMargin: '0px 0px 0px 0px' });
+    document.querySelectorAll('.sr, .sr-l, .sr-r, .sr-scale, .sr-fade').forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        revealEl(el);
+      } else {
+        io.observe(el);
+      }
+    });
+
+    this._off = () => window.removeEventListener('scroll', onScroll);
+  }
+
+  componentWillUnmount() {
+    if (this._off) this._off();
+  }
+
+  renderVals() {
+    const { dark, menuOpen } = this.state;
+    return {
+      wrapStyle: {
+        fontFamily: "'DM Sans', sans-serif",
+        fontWeight: 300,
+        '--g': dark ? '#1A1714' : '#F1ECE5',
+        '--s': dark ? '#231E1B' : '#E6DFD6',
+        '--p': dark ? '#F1ECE5' : '#1A1714',
+        '--m': '#78726C',
+        '--r': dark ? '#2E2825' : '#CFC4B4',
+        '--a': '#8A6A3A',
+      },
+      isDark: dark,
+      isLight: !dark,
+      menuOpen,
+      menuClosed: !menuOpen,
+      toggleDark: () => this.setState(s => ({ dark: !s.dark })),
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      menuBtnBg: dark ? '#2E2825' : '#1A1714',
+    };
+  }
+}
+</script>
+</body>
+</html>
