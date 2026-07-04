@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
+<script src="/Illuminati/support.js"></script>
 </head>
 <body>
 <x-dc>
@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;400&family=DM+Sans:wght@300;400&family=Jost:wght@300&display=swap" rel="stylesheet">
-<script src="./image-slot.js"></script>
+<script src="/Illuminati/image-slot.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html,body{margin:0;padding:0}
@@ -83,7 +83,7 @@ button{font-family:inherit;cursor:pointer;border-radius:0}
 
 <!-- ═══ PAGE CURTAIN ═══ -->
 <div class="curtain">
-  <img src="uploads/Illuminati-White.svg" style="height:22px;display:block" alt="Illuminati">
+  <img src="/Illuminati/uploads/Illuminati-White.svg" style="height:22px;display:block" alt="Illuminati">
 </div>
 
 <div style="{{ wrapStyle }}">
@@ -128,10 +128,10 @@ button{font-family:inherit;cursor:pointer;border-radius:0}
     </div>
     <div style="position:absolute;left:50%;transform:translateX(-50%);pointer-events:none">
       <sc-if value="{{ isDark }}" hint-placeholder-val="{{ false }}">
-        <img src="uploads/Illuminati-White.svg" style="height:20px;display:block" alt="Illuminati Lighting">
+        <img src="/Illuminati/uploads/Illuminati-White.svg" style="height:20px;display:block" alt="Illuminati Lighting">
       </sc-if>
       <sc-if value="{{ isLight }}" hint-placeholder-val="{{ true }}">
-        <img src="uploads/Illuminati-Black.svg" style="height:20px;display:block" alt="Illuminati Lighting">
+        <img src="/Illuminati/uploads/Illuminati-Black.svg" style="height:20px;display:block" alt="Illuminati Lighting">
       </sc-if>
     </div>
     <div style="margin-left:auto;display:flex;align-items:center;gap:20px;padding-right:24px;flex-shrink:0">
@@ -430,7 +430,7 @@ button{font-family:inherit;cursor:pointer;border-radius:0}
 <footer class="section-footer" data-screen-label="Footer" style="background:#1A1714;padding:64px 56px 0">
   <div class="fg" style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1.5fr;gap:40px;padding-bottom:48px">
     <div>
-      <div style="margin-bottom:20px"><img src="uploads/Illuminati-White.svg" style="height:20px;display:block" alt="Illuminati"></div>
+      <div style="margin-bottom:20px"><img src="/Illuminati/uploads/Illuminati-White.svg" style="height:20px;display:block" alt="Illuminati"></div>
       <p style="font:300 13px/1.85 'DM Sans',sans-serif;color:#78726C;margin-bottom:24px;max-width:280px">British handcrafted lighting for the hospitality, residential, and commercial sectors.</p>
       <div style="display:flex;gap:16px;align-items:center">
         <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1" style="color:#78726C"><rect x="3" y="3" width="14" height="14" rx="4"></rect><circle cx="10" cy="10" r="3.5"></circle><circle cx="14.5" cy="5.5" r="0.5" fill="currentColor"></circle></svg>
