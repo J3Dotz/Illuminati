@@ -595,5 +595,21 @@ class Component extends DCLogic {
   }
 }
 </script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('click', (e) => {
+    // ponytail: "is menu open" is inferred from the close-X icon's viewBox rather than
+    // reading React state directly (support.js owns that). If the icon markup changes,
+    // this detection breaks — re-derive from the live-rendered button instead.
+    const closeIcon = document.querySelector('button svg[viewBox="0 0 16 16"]');
+    if (!closeIcon) return;
+    const button = closeIcon.closest('button');
+    const navWrapper = button.closest('[style*="position: sticky"]');
+    if (navWrapper && !navWrapper.contains(e.target)) {
+      button.click();
+    }
+  });
+});
+</script>
 </body>
 </html>
