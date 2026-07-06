@@ -598,21 +598,42 @@ class Component extends DCLogic {
 <style>
 .nav-panel-enter {
   opacity: 0;
-  transform: translateY(-8px);
+  transform: translateY(-12px);
 }
 
 .nav-panel-enter-active {
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 220ms cubic-bezier(0.16, 1, 0.3, 1),
-              transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 360ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 360ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .nav-panel-exit-active {
   opacity: 0;
-  transform: translateY(-8px);
-  transition: opacity 140ms cubic-bezier(0.7, 0, 1, 1),
-              transform 140ms cubic-bezier(0.7, 0, 1, 1);
+  transform: translateY(-12px);
+  transition: opacity 240ms cubic-bezier(0.7, 0, 1, 1),
+              transform 240ms cubic-bezier(0.7, 0, 1, 1);
+}
+
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 299;
+  background: transparent;
+}
+
+@media (max-width: 960px) {
+  .nav-mega-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+  .nav-mega-photos {
+    margin: 0 !important;
+    overflow-x: auto !important;
+  }
+  .nav-mega-photos > div {
+    flex: 0 0 60% !important;
+  }
 }
 </style>
 <script>
@@ -626,20 +647,41 @@ class Component extends DCLogic {
     setTimeout(waitForNav, 16);
     return;
   }
+
+  navWrapper.classList.add('nav-closed');
+
   // ponytail: the mega-menu panel is the runtime's 3rd direct child of navWrapper,
   // fully mounted/unmounted on toggle (not display/opacity/class driven). Ceiling:
   // if support.js ever restructures navWrapper's children, this indexing breaks —
   // re-derive from the live DOM instead of assuming this shape.
-  const CLOSE_MS = 140;
+  const CLOSE_MS = 240;
+  let overlay = null;
 
   new MutationObserver((mutations) => {
     for (const m of mutations) {
       for (const node of m.addedNodes) {
-        if (node.nodeType === 1 && node.parentElement === navWrapper) {
-          node.className = 'nav-panel-enter';
-          void node.offsetHeight; // force reflow so the enter state paints before animating
-          node.className = 'nav-panel-enter-active';
-        }
+        if (node.nodeType !== 1 || node.parentElement !== navWrapper) continue;
+
+        // ponytail: journal pages' mega-menu is a grid-only variant (no photo strip),
+        // so the photos lookup is allowed to come back empty.
+        const wrap = node.children[0];
+        const grid = wrap && wrap.children[0];
+        const photos = wrap && wrap.children[1];
+        if (grid) grid.classList.add('nav-mega-grid');
+        if (photos) photos.classList.add('nav-mega-photos');
+
+        navWrapper.classList.remove('nav-closed');
+        navWrapper.classList.add('nav-open');
+
+        node.classList.add('nav-panel-enter');
+        void node.offsetHeight; // force reflow so the enter state paints before animating
+        node.classList.remove('nav-panel-enter');
+        node.classList.add('nav-panel-enter-active');
+
+        overlay = document.createElement('div');
+        overlay.className = 'nav-overlay';
+        overlay.addEventListener('click', () => button.click());
+        document.body.appendChild(overlay);
       }
     }
   }).observe(navWrapper, { childList: true });
@@ -660,19 +702,21 @@ class Component extends DCLogic {
     const panel = navWrapper.children[2];
     if (!panel) return;
     e.stopImmediatePropagation();
-    panel.className = 'nav-panel-exit-active';
+
+    navWrapper.classList.remove('nav-open');
+    navWrapper.classList.add('nav-closed');
+    panel.classList.remove('nav-panel-enter-active');
+    panel.classList.add('nav-panel-exit-active');
+
     setTimeout(() => {
+      if (overlay) {
+        overlay.remove();
+        overlay = null;
+      }
       closing = true;
       button.click();
     }, CLOSE_MS);
   }, true);
-
-  document.addEventListener('click', (e) => {
-    const panel = navWrapper.children[2];
-    if (panel && !navWrapper.contains(e.target)) {
-      button.click();
-    }
-  });
 })();
 </script>
 </body>
