@@ -28,24 +28,24 @@ button{font-family:inherit;cursor:pointer;border-radius:0}
 .btn-solid:hover{color:#F1ECE5}.btn-solid:hover::before{transform:scaleX(1)}
 .btn-solid span{position:relative;z-index:1}
 
-.lnk{position:relative;color:#8A6A3A;display:inline-block}
+.lnk{position:relative;color:var(--a-text);display:inline-block}
 .lnk::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:1px;background:#8A6A3A;transform:scaleX(0);transform-origin:left center;transition:transform 220ms ease}
 .lnk:hover::after{transform:scaleX(1)}
 
-.nav-a{transition:opacity 200ms ease;color:var(--m,#78726C)}
+.nav-a{transition:opacity 200ms ease;color:var(--m-text)}
 .nav-a:hover{opacity:0.5}
 
 .img-card .card-img{transition:transform 600ms cubic-bezier(0.16,1,0.3,1),opacity 200ms ease}
 .img-card:hover .card-img{transform:scale(1.02);opacity:0.92}
 
-.rich-link{color:#8A6A3A}
+.rich-link{color:var(--a-text)}
 .rich-link:hover{text-decoration:underline;text-underline-offset:2px}
 
-.cms-tag{font:400 7px/1 'DM Sans',sans-serif;letter-spacing:0.16em;color:#8A6A3A;border:1px dashed rgba(138,106,58,0.55);padding:2px 5px;display:inline-block;margin-bottom:8px}
-.wf-class{font:300 8px/1 'Jost',sans-serif;letter-spacing:0.1em;color:#78726C;opacity:0.6;display:block;margin-bottom:8px}
+.cms-tag{font:400 7px/1 'DM Sans',sans-serif;letter-spacing:0.16em;color:var(--a-text);border:1px dashed rgba(138,106,58,0.55);padding:2px 5px;display:inline-block;margin-bottom:8px}
+.wf-class{font:300 8px/1 'Jost',sans-serif;letter-spacing:0.1em;color:var(--m-text);opacity:0.6;display:block;margin-bottom:8px}
 .dev-note{border-left:2px solid rgba(138,106,58,0.35);padding:8px 12px;margin:12px 0 0;background:rgba(138,106,58,0.04)}
-.dev-note p{font:300 9px/1.65 'Jost',sans-serif;color:#78726C}
-.dev-note strong{font-weight:400;color:#8A6A3A}
+.dev-note p{font:300 9px/1.65 'Jost',sans-serif;color:var(--m-text)}
+.dev-note strong{font-weight:400;color:var(--a-text)}
 
 @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
@@ -120,17 +120,17 @@ button{font-family:inherit;cursor:pointer;border-radius:0}
       <div style="padding:44px 56px 44px">
         <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:32px">
           <div>
-            <a href="/Illuminati/lighting/" style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:var(--m);padding-bottom:10px;border-bottom:1px solid #8A6A3A;margin-bottom:20px;display:block;text-decoration:none">LIGHTING</a>
+            <a href="/Illuminati/lighting/" style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:var(--m-text);padding-bottom:10px;border-bottom:1px solid #8A6A3A;margin-bottom:20px;display:block;text-decoration:none">LIGHTING</a>
             <div style="display:flex;flex-direction:column;gap:11px">
               <a style="font:300 13px/1 'DM Sans',sans-serif;color:var(--p)">All Lighting</a>
-              <a style="font:300 13px/1 'DM Sans',sans-serif;color:var(--p)">Signature</a>
+              <a href="/Illuminati/lighting/signature/" style="font:300 13px/1 'DM Sans',sans-serif;color:var(--p)">Signature</a>
               <a style="font:300 13px/1 'DM Sans',sans-serif;color:var(--p)">Essentials</a>
               <a style="font:300 13px/1 'DM Sans',sans-serif;color:var(--p)">Healthy Living</a>
               <a style="font:300 13px/1 'DM Sans',sans-serif;color:var(--p)">Architectural</a>
             </div>
           </div>
           <div>
-            <a href="#" style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:var(--m);padding-bottom:10px;margin-bottom:20px;display:block;text-decoration:none">BESPOKE</a>
+            <a href="#" style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:var(--m-text);padding-bottom:10px;margin-bottom:20px;display:block;text-decoration:none">BESPOKE</a>
             <div style="display:flex;flex-direction:column;gap:11px">
               <a style="font:300 13px/1 'DM Sans',sans-serif;color:var(--p)">Premium Custom Lighting</a>
               <a style="font:300 13px/1 'DM Sans',sans-serif;color:var(--p)">Designer Support</a>
@@ -138,7 +138,7 @@ button{font-family:inherit;cursor:pointer;border-radius:0}
             </div>
           </div>
           <div>
-            <a href="#" style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:var(--m);padding-bottom:10px;margin-bottom:20px;display:block;text-decoration:none">STUDIO</a>
+            <a href="#" style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:var(--m-text);padding-bottom:10px;margin-bottom:20px;display:block;text-decoration:none">STUDIO</a>
             <div style="display:flex;flex-direction:column;gap:11px">
               <a style="font:300 13px/1 'DM Sans',sans-serif;color:var(--p)">Site Visits &amp; Surveys</a>
               <a style="font:300 13px/1 'DM Sans',sans-serif;color:var(--p)">Lighting Design</a>
@@ -146,7 +146,7 @@ button{font-family:inherit;cursor:pointer;border-radius:0}
             </div>
           </div>
           <div>
-            <a href="#" style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:var(--m);padding-bottom:10px;margin-bottom:20px;display:block;text-decoration:none">SECTORS</a>
+            <a href="#" style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:var(--m-text);padding-bottom:10px;margin-bottom:20px;display:block;text-decoration:none">SECTORS</a>
             <div style="display:flex;flex-direction:column;gap:11px">
               <a style="font:300 13px/1 'DM Sans',sans-serif;color:var(--p)">Residential</a>
               <a style="font:300 13px/1 'DM Sans',sans-serif;color:var(--p)">Hospitality</a>
@@ -154,7 +154,7 @@ button{font-family:inherit;cursor:pointer;border-radius:0}
             </div>
           </div>
           <div>
-            <a href="#" style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:var(--m);padding-bottom:10px;margin-bottom:20px;display:block;text-decoration:none">COMPANY</a>
+            <a href="#" style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:var(--m-text);padding-bottom:10px;margin-bottom:20px;display:block;text-decoration:none">COMPANY</a>
             <div style="display:flex;flex-direction:column;gap:11px">
               <a style="font:300 13px/1 'DM Sans',sans-serif;color:var(--p)">About Us</a>
               <a style="font:300 13px/1 'DM Sans',sans-serif;color:var(--p)">Showrooms</a>
@@ -175,9 +175,9 @@ button{font-family:inherit;cursor:pointer;border-radius:0}
   <div style="padding:20px 56px 0">
     <span class="wf-class">.section-article-hero · atom 09 .breadcrumb · DM Sans Regular 9px uppercase brass separator</span>
     <div style="display:flex;align-items:center;gap:8px">
-      <a href="/Illuminati/journal/" style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.16em;color:#78726C">JOURNAL</a>
-      <span style="color:#8A6A3A;font-size:10px">·</span>
-      <span style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.16em;color:#78726C"><span class="cms-tag" style="margin-bottom:0;vertical-align:middle">CMS: Name</span> AMANO HOTEL LONDON — ATMOSPHERIC HOSPITALITY LIGHTING</span>
+      <a href="/Illuminati/journal/" style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.16em;color:var(--m-text)">JOURNAL</a>
+      <span style="color:var(--a-text);font-size:10px">·</span>
+      <span style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.16em;color:var(--m-text)"><span class="cms-tag" style="margin-bottom:0;vertical-align:middle">CMS: Name</span> AMANO HOTEL LONDON — ATMOSPHERIC HOSPITALITY LIGHTING</span>
     </div>
   </div>
 
@@ -192,14 +192,14 @@ button{font-family:inherit;cursor:pointer;border-radius:0}
 
     <div style="margin-bottom:20px">
       <span class="cms-tag" style="display:block">CATEGORY · organism 08 · .tag-chip · brass border on dark</span>
-      <span style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.16em;color:#8A6A3A;border:1px solid #8A6A3A;padding:4px 10px;display:inline-block">CASE STUDIES</span>
+      <span style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.16em;color:var(--a-text);border:1px solid #8A6A3A;padding:4px 10px;display:inline-block">CASE STUDIES</span>
     </div>
 
     <span class="cms-tag" style="display:block">ARTICLE TITLE · Outfit Regular 36px · #F1ECE5 · 2 lines max</span>
     <h1 style="font:400 36px/1.15 'Outfit',sans-serif;color:#F1ECE5;margin-bottom:16px;max-width:720px">Amano Hotel London — A Case Study in Atmospheric Hospitality Lighting</h1>
 
     <span class="cms-tag" style="display:block">AUTHOR + DATE · Jost Light 10px · #78726C</span>
-    <p style="font:300 10px/1 'Jost',sans-serif;color:#78726C;margin-bottom:20px;letter-spacing:0.06em">By Sarah Whitmore &nbsp;·&nbsp; 12 June 2026</p>
+    <p style="font:300 10px/1 'Jost',sans-serif;color:var(--m-text);margin-bottom:20px;letter-spacing:0.06em">By Sarah Whitmore &nbsp;·&nbsp; 12 June 2026</p>
 
     <div style="height:1px;background:#2E2825"></div>
   </div>
@@ -227,7 +227,7 @@ button{font-family:inherit;cursor:pointer;border-radius:0}
 
     <!-- Pull quote -->
     <span class="cms-tag" style="display:block;margin-bottom:6px">PULL QUOTE · Outfit Regular 20px · brass · 2px brass left border · pl 24px · my 40px</span>
-    <blockquote style="font:400 20px/1.5 'Outfit',sans-serif;color:#8A6A3A;border-left:2px solid #8A6A3A;padding-left:24px;margin:40px 0">The most important lighting decision in any room is the one that goes unnoticed.</blockquote>
+    <blockquote style="font:400 20px/1.5 'Outfit',sans-serif;color:var(--a-text);border-left:2px solid #8A6A3A;padding-left:24px;margin:40px 0">The most important lighting decision in any room is the one that goes unnoticed.</blockquote>
 
     <!-- H3 -->
     <span class="cms-tag" style="display:block;margin-bottom:6px">H3 · Outfit Regular 20px · --color-primary</span>
@@ -242,7 +242,7 @@ button{font-family:inherit;cursor:pointer;border-radius:0}
         <image-slot id="body-img" placeholder="Hotel corridor Level 7 — warm pendant lighting, long perspective, brass fixtures, deep shadow" shape="rect" fit="cover" style="width:100%;height:100%;display:block"></image-slot>
       </div>
       <span class="cms-tag" style="display:block;margin-top:10px;margin-bottom:4px">IMAGE CAPTION · Jost Light 10px · --color-muted · text-align centre</span>
-      <p style="font:300 10px/1.6 'Jost',sans-serif;color:#78726C;text-align:center">The main corridor, Level 7. ILL-SIG-P3 pendant, Aged Brass. Photo: Amano Studios.</p>
+      <p style="font:300 10px/1.6 'Jost',sans-serif;color:var(--m-text);text-align:center">The main corridor, Level 7. ILL-SIG-P3 pendant, Aged Brass. Photo: Amano Studios.</p>
     </div>
 
     <p style="font:300 16px/1.85 'DM Sans',sans-serif;color:var(--p);margin-bottom:24px">The rooftop presented the greatest challenge. South-facing, exposed, with a nine-metre glazed facade, it needed to read as warm and intimate after dark while meeting planning authority requirements for light spill. Our solution: a recessed perimeter cove combined with individually dimmed pendants on a two-circuit system.</p>
@@ -250,10 +250,10 @@ button{font-family:inherit;cursor:pointer;border-radius:0}
     <!-- Unordered list -->
     <span class="cms-tag" style="display:block;margin-bottom:6px">UNORDERED LIST · DM Sans Light 15px · 8px item gap · brass bullet/number colour</span>
     <ul style="list-style:none;padding:0;margin:24px 0;display:flex;flex-direction:column;gap:8px">
-      <li style="font:300 15px/1.75 'DM Sans',sans-serif;color:var(--p);padding-left:20px;position:relative"><span style="position:absolute;left:0;color:#8A6A3A">—</span>ILL-SIG-P3 pendant, Aged Brass, 3000K, CRI 97</li>
-      <li style="font:300 15px/1.75 'DM Sans',sans-serif;color:var(--p);padding-left:20px;position:relative"><span style="position:absolute;left:0;color:#8A6A3A">—</span>ILL-ARC-W2 wall bracket, custom matte bronze powder coat</li>
-      <li style="font:300 15px/1.75 'DM Sans',sans-serif;color:var(--p);padding-left:20px;position:relative"><span style="position:absolute;left:0;color:#8A6A3A">—</span>ILL-COV-9 integrated LED cove profile, tunable white 2700–4000K</li>
-      <li style="font:300 15px/1.75 'DM Sans',sans-serif;color:var(--p);padding-left:20px;position:relative"><span style="position:absolute;left:0;color:#8A6A3A">—</span>Casambi wireless control throughout, zone-addressable per room</li>
+      <li style="font:300 15px/1.75 'DM Sans',sans-serif;color:var(--p);padding-left:20px;position:relative"><span style="position:absolute;left:0;color:var(--a-text)">—</span>ILL-SIG-P3 pendant, Aged Brass, 3000K, CRI 97</li>
+      <li style="font:300 15px/1.75 'DM Sans',sans-serif;color:var(--p);padding-left:20px;position:relative"><span style="position:absolute;left:0;color:var(--a-text)">—</span>ILL-ARC-W2 wall bracket, custom matte bronze powder coat</li>
+      <li style="font:300 15px/1.75 'DM Sans',sans-serif;color:var(--p);padding-left:20px;position:relative"><span style="position:absolute;left:0;color:var(--a-text)">—</span>ILL-COV-9 integrated LED cove profile, tunable white 2700–4000K</li>
+      <li style="font:300 15px/1.75 'DM Sans',sans-serif;color:var(--p);padding-left:20px;position:relative"><span style="position:absolute;left:0;color:var(--a-text)">—</span>Casambi wireless control throughout, zone-addressable per room</li>
     </ul>
 
     <p style="font:300 16px/1.85 'DM Sans',sans-serif;color:var(--p);margin-bottom:0">The project completed in February 2026. Guest reviews have mentioned the atmosphere of the rooms more frequently than any other design element — which, for a lighting company, is perhaps the best review of all.</p>
@@ -264,7 +264,7 @@ button{font-family:inherit;cursor:pointer;border-radius:0}
 <section data-screen-label="03 Related Articles" style="background:var(--s);padding:80px 0">
   <div style="max-width:1328px;margin:0 auto;padding:0 56px">
     <span class="wf-class">.section-related-articles · CMS Multi-reference field: Related Articles</span>
-    <p style="font:400 10px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:#8A6A3A;margin-bottom:12px">RELATED ARTICLES</p>
+    <p style="font:400 10px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:var(--a-text);margin-bottom:12px">RELATED ARTICLES</p>
     <div style="width:40px;height:1px;background:#8A6A3A;margin-bottom:40px"></div>
 
     <div class="rel-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--r)">
@@ -277,9 +277,9 @@ button{font-family:inherit;cursor:pointer;border-radius:0}
         </div>
         <div style="padding:24px 28px 32px">
           <span class="cms-tag" style="display:block;margin-bottom:10px">CMS MULTI-REF · organism 11 · .card-editorial</span>
-          <div style="margin-bottom:14px"><span style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.14em;color:#8A6A3A;border:1px solid #8A6A3A;padding:3px 8px;display:inline-block">DESIGN</span></div>
+          <div style="margin-bottom:14px"><span style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.14em;color:var(--a-text);border:1px solid #8A6A3A;padding:3px 8px;display:inline-block">DESIGN</span></div>
           <h3 style="font:400 16px/1.3 'Outfit',sans-serif;color:var(--p);margin-bottom:10px">Layering Light: The Case for Multi-Circuit Specification</h3>
-          <p style="font:300 10px/1 'Jost',sans-serif;color:#78726C;margin-bottom:18px">3 June 2026</p>
+          <p style="font:300 10px/1 'Jost',sans-serif;color:var(--m-text);margin-bottom:18px">3 June 2026</p>
           <a class="lnk" style="font:300 12px/1 'DM Sans',sans-serif">Read →</a>
         </div>
       </div>
@@ -291,9 +291,9 @@ button{font-family:inherit;cursor:pointer;border-radius:0}
           </div>
         </div>
         <div style="padding:24px 28px 32px">
-          <div style="margin-bottom:14px"><span style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.14em;color:#8A6A3A;border:1px solid #8A6A3A;padding:3px 8px;display:inline-block">DESIGN</span></div>
+          <div style="margin-bottom:14px"><span style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.14em;color:var(--a-text);border:1px solid #8A6A3A;padding:3px 8px;display:inline-block">DESIGN</span></div>
           <h3 style="font:400 16px/1.3 'Outfit',sans-serif;color:var(--p);margin-bottom:10px">From Brief to Installation: How Our Studio Works with Architects</h3>
-          <p style="font:300 10px/1 'Jost',sans-serif;color:#78726C;margin-bottom:18px">19 May 2026</p>
+          <p style="font:300 10px/1 'Jost',sans-serif;color:var(--m-text);margin-bottom:18px">19 May 2026</p>
           <a class="lnk" style="font:300 12px/1 'DM Sans',sans-serif">Read →</a>
         </div>
       </div>
@@ -305,9 +305,9 @@ button{font-family:inherit;cursor:pointer;border-radius:0}
           </div>
         </div>
         <div style="padding:24px 28px 32px">
-          <div style="margin-bottom:14px"><span style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.14em;color:#8A6A3A;border:1px solid #8A6A3A;padding:3px 8px;display:inline-block">INDUSTRY NEWS</span></div>
+          <div style="margin-bottom:14px"><span style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.14em;color:var(--a-text);border:1px solid #8A6A3A;padding:3px 8px;display:inline-block">INDUSTRY NEWS</span></div>
           <h3 style="font:400 16px/1.3 'Outfit',sans-serif;color:var(--p);margin-bottom:10px">Why Circadian-Tuned Lighting Is Now a Standard Specification</h3>
-          <p style="font:300 10px/1 'Jost',sans-serif;color:#78726C;margin-bottom:18px">28 May 2026</p>
+          <p style="font:300 10px/1 'Jost',sans-serif;color:var(--m-text);margin-bottom:18px">28 May 2026</p>
           <a class="lnk" style="font:300 12px/1 'DM Sans',sans-serif">Read →</a>
         </div>
       </div>
@@ -325,10 +325,10 @@ button{font-family:inherit;cursor:pointer;border-radius:0}
   <div style="padding:80px 56px">
     <div class="htb" style="display:flex;align-items:center;justify-content:space-between;gap:60px">
       <div>
-        <p style="font:400 10px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:#8A6A3A;margin-bottom:12px">HOW TO BUY</p>
+        <p style="font:400 10px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:var(--a-text);margin-bottom:12px">HOW TO BUY</p>
         <div style="width:40px;height:1px;background:#8A6A3A;margin-bottom:24px"></div>
         <h2 style="font:400 32px/1.15 'Outfit',sans-serif;color:var(--p);margin-bottom:16px">Find us in showrooms<br>across the UK and beyond.</h2>
-        <p style="font:300 14px/1.7 'DM Sans',sans-serif;color:#78726C">Trade, retail and distributor partners worldwide.</p>
+        <p style="font:300 14px/1.7 'DM Sans',sans-serif;color:var(--m-text)">Trade, retail and distributor partners worldwide.</p>
       </div>
       <div style="flex-shrink:0">
         <a class="btn-solid" style="font:400 11px/1 'DM Sans',sans-serif;letter-spacing:0.18em;padding:16px 40px;white-space:nowrap"><span>FIND A SHOWROOM →</span></a>
@@ -343,17 +343,17 @@ button{font-family:inherit;cursor:pointer;border-radius:0}
   <div class="fg" style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr 1fr 1.5fr;gap:40px;padding-bottom:48px">
     <div>
       <div style="margin-bottom:20px"><img src="/Illuminati/uploads/Illuminati-White.svg" style="height:20px;display:block" alt="Illuminati"></div>
-      <p style="font:300 13px/1.85 'DM Sans',sans-serif;color:#78726C;margin-bottom:24px;max-width:280px">British handcrafted lighting for the hospitality, residential, and commercial sectors.</p>
+      <p style="font:300 13px/1.85 'DM Sans',sans-serif;color:var(--m-text);margin-bottom:24px;max-width:280px">British handcrafted lighting for the hospitality, residential, and commercial sectors.</p>
       <div style="display:flex;gap:16px;align-items:center">
-        <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1" style="color:#78726C"><rect x="3" y="3" width="14" height="14" rx="4"></rect><circle cx="10" cy="10" r="3.5"></circle><circle cx="14.5" cy="5.5" r="0.5" fill="currentColor"></circle></svg>
-        <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1" style="color:#78726C"><rect x="3" y="4" width="14" height="12"></rect><path d="M3 7 L10 12 L17 7"></path></svg>
-        <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1" style="color:#78726C"><circle cx="10" cy="10" r="7"></circle><path d="M4 10 Q7 6 10 10 Q13 14 16 10"></path></svg>
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1" style="color:var(--m-text)"><rect x="3" y="3" width="14" height="14" rx="4"></rect><circle cx="10" cy="10" r="3.5"></circle><circle cx="14.5" cy="5.5" r="0.5" fill="currentColor"></circle></svg>
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1" style="color:var(--m-text)"><rect x="3" y="4" width="14" height="12"></rect><path d="M3 7 L10 12 L17 7"></path></svg>
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1" style="color:var(--m-text)"><circle cx="10" cy="10" r="7"></circle><path d="M4 10 Q7 6 10 10 Q13 14 16 10"></path></svg>
       </div>
     </div>
     <div>
-      <p style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:#78726C;margin-bottom:20px">LIGHTING</p>
+      <p style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:var(--m-text);margin-bottom:20px">LIGHTING</p>
       <div style="display:flex;flex-direction:column;gap:12px">
-        <a style="font:300 12px/1 'DM Sans',sans-serif;color:#F1ECE5">Signature</a>
+        <a href="/Illuminati/lighting/signature/" style="font:300 12px/1 'DM Sans',sans-serif;color:#F1ECE5">Signature</a>
         <a style="font:300 12px/1 'DM Sans',sans-serif;color:#F1ECE5">Essentials</a>
         <a style="font:300 12px/1 'DM Sans',sans-serif;color:#F1ECE5">Healthy Living</a>
         <a style="font:300 12px/1 'DM Sans',sans-serif;color:#F1ECE5">Architectural</a>
@@ -362,7 +362,7 @@ button{font-family:inherit;cursor:pointer;border-radius:0}
       </div>
     </div>
     <div>
-      <p style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:#78726C;margin-bottom:20px">BESPOKE</p>
+      <p style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:var(--m-text);margin-bottom:20px">BESPOKE</p>
       <div style="display:flex;flex-direction:column;gap:12px">
         <a style="font:300 12px/1 'DM Sans',sans-serif;color:#F1ECE5">Custom Lighting</a>
         <a style="font:300 12px/1 'DM Sans',sans-serif;color:#F1ECE5">Designer Support</a>
@@ -371,7 +371,7 @@ button{font-family:inherit;cursor:pointer;border-radius:0}
       </div>
     </div>
     <div>
-      <p style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:#78726C;margin-bottom:20px">STUDIO</p>
+      <p style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:var(--m-text);margin-bottom:20px">STUDIO</p>
       <div style="display:flex;flex-direction:column;gap:12px">
         <a style="font:300 12px/1 'DM Sans',sans-serif;color:#F1ECE5">Site Visits</a>
         <a style="font:300 12px/1 'DM Sans',sans-serif;color:#F1ECE5">Lighting Design</a>
@@ -380,7 +380,7 @@ button{font-family:inherit;cursor:pointer;border-radius:0}
       </div>
     </div>
     <div>
-      <p style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:#78726C;margin-bottom:20px">JOURNAL</p>
+      <a href="/Illuminati/journal/" style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:var(--m-text);margin-bottom:20px;display:block;text-decoration:none">JOURNAL</a>
       <div style="display:flex;flex-direction:column;gap:12px">
         <a style="font:300 12px/1 'DM Sans',sans-serif;color:#F1ECE5">Design</a>
         <a style="font:300 12px/1 'DM Sans',sans-serif;color:#F1ECE5">Installations</a>
@@ -390,7 +390,7 @@ button{font-family:inherit;cursor:pointer;border-radius:0}
       </div>
     </div>
     <div>
-      <p style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:#78726C;margin-bottom:20px">COMPANY</p>
+      <p style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:var(--m-text);margin-bottom:20px">COMPANY</p>
       <div style="display:flex;flex-direction:column;gap:12px">
         <a style="font:300 12px/1 'DM Sans',sans-serif;color:#F1ECE5">About Us</a>
         <a style="font:300 12px/1 'DM Sans',sans-serif;color:#F1ECE5">Showrooms</a>
@@ -400,24 +400,24 @@ button{font-family:inherit;cursor:pointer;border-radius:0}
       </div>
     </div>
     <div>
-      <p style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:#78726C;margin-bottom:20px">CONTACT</p>
+      <p style="font:400 9px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:var(--m-text);margin-bottom:20px">CONTACT</p>
       <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:16px">
-        <p style="font:300 11px/1.6 'Jost',sans-serif;color:#78726C">Illuminati Lighting UK Ltd</p>
-        <p style="font:300 11px/1.6 'Jost',sans-serif;color:#78726C">Beren Court, Newney Green, Chelmsford, Essex, CM1 3SQ</p>
+        <p style="font:300 11px/1.6 'Jost',sans-serif;color:var(--m-text)">Illuminati Lighting UK Ltd</p>
+        <p style="font:300 11px/1.6 'Jost',sans-serif;color:var(--m-text)">Beren Court, Newney Green, Chelmsford, Essex, CM1 3SQ</p>
       </div>
-      <p style="font:300 11px/1.6 'Jost',sans-serif;color:#78726C">01245 355 507</p>
-      <p style="font:300 11px/1.6 'Jost',sans-serif;color:#8A6A3A">sales@illuminati-lighting.co.uk</p>
+      <p style="font:300 11px/1.6 'Jost',sans-serif;color:var(--m-text)">01245 355 507</p>
+      <p style="font:300 11px/1.6 'Jost',sans-serif;color:var(--a-text)">sales@illuminati-lighting.co.uk</p>
     </div>
   </div>
   <div style="height:1px;background:#2E2825"></div>
   <div style="padding:20px 0;display:flex;justify-content:space-between;align-items:center">
-    <p style="font:300 10px/1 'Jost',sans-serif;color:#78726C">© 2026 Illuminati Lighting UK Ltd · Company No. 072 39 324</p>
+    <p style="font:300 10px/1 'Jost',sans-serif;color:var(--m-text)">© 2026 Illuminati Lighting UK Ltd · Company No. 072 39 324</p>
     <div style="display:flex;gap:16px;align-items:center">
-      <a style="font:300 10px/1 'Jost',sans-serif;color:#78726C">Privacy Policy</a>
+      <a style="font:300 10px/1 'Jost',sans-serif;color:var(--m-text)">Privacy Policy</a>
       <span style="color:#2E2825">·</span>
-      <a style="font:300 10px/1 'Jost',sans-serif;color:#78726C">Terms &amp; Conditions</a>
+      <a style="font:300 10px/1 'Jost',sans-serif;color:var(--m-text)">Terms &amp; Conditions</a>
       <span style="color:#2E2825">·</span>
-      <a style="font:300 10px/1 'Jost',sans-serif;color:#78726C">Cookies</a>
+      <a style="font:300 10px/1 'Jost',sans-serif;color:var(--m-text)">Cookies</a>
     </div>
   </div>
 </footer>
@@ -453,6 +453,8 @@ class Component extends DCLogic {
         '--s': dark ? '#231E1B' : '#E6DFD6',
         '--p': dark ? '#F1ECE5' : '#1A1714',
         '--m': '#78726C',
+        '--m-text': dark ? '#A8A39E' : '#5B5752',
+        '--a-text': dark ? '#C09D68' : '#6C532D',
         '--r': dark ? '#2E2825' : '#CFC4B4',
         '--a': '#8A6A3A',
       },
