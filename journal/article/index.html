@@ -41,9 +41,9 @@ button{font-family:inherit;cursor:pointer;border-radius:0}
 .rich-link{color:var(--a-text)}
 .rich-link:hover{text-decoration:underline;text-underline-offset:2px}
 
-.cms-tag{font:400 7px/1 'DM Sans',sans-serif;letter-spacing:0.16em;color:var(--a-text);border:1px dashed rgba(138,106,58,0.55);padding:2px 5px;display:inline-block;margin-bottom:8px}
-.wf-class{font:300 8px/1 'Jost',sans-serif;letter-spacing:0.1em;color:var(--m-text);opacity:0.6;display:block;margin-bottom:8px}
-.dev-note{border-left:2px solid rgba(138,106,58,0.35);padding:8px 12px;margin:12px 0 0;background:rgba(138,106,58,0.04)}
+.cms-tag{display:none!important}
+.wf-class{display:none!important}
+.dev-note{display:none!important}
 .dev-note p{font:300 9px/1.65 'Jost',sans-serif;color:var(--m-text)}
 .dev-note strong{font-weight:400;color:var(--a-text)}
 
@@ -170,7 +170,7 @@ button{font-family:inherit;cursor:pointer;border-radius:0}
 <section data-screen-label="01 Article Hero" style="background:#1A1714">
 
   <!-- Breadcrumb · atom 09 -->
-  <div style="padding:20px 56px 0">
+  <div style="padding:16px 56px 0">
     <span class="wf-class">.section-article-hero · atom 09 .breadcrumb · DM Sans Regular 9px uppercase brass separator</span>
     <div style="display:flex;align-items:center;gap:8px">
       <a href="/Illuminati/journal/" style="font:400 10px/1 'DM Sans',sans-serif;letter-spacing:0.16em;color:#A8A39E">JOURNAL</a>
@@ -179,25 +179,25 @@ button{font-family:inherit;cursor:pointer;border-radius:0}
     </div>
   </div>
 
-  <!-- Hero image: 60vh full-bleed -->
-  <div style="height:60vh;overflow:hidden;margin-top:24px;position:relative">
+  <!-- Hero image: 42vh full-bleed, sized to keep the whole hero within one view -->
+  <div style="height:42vh;overflow:hidden;margin-top:16px;position:relative">
     <image-slot id="article-hero" placeholder="Amano Hotel London — cinematic lobby or corridor, warm pendant glow, deep architectural shadow" src="/Illuminati/uploads/bespoke-services-illuminati-lighting.jpeg" shape="rect" fit="cover" style="position:absolute;inset:0;width:100%;height:100%;display:block"></image-slot>
   </div>
 
   <!-- Text below image, within dark section -->
-  <div style="padding:40px 56px 64px;max-width:900px">
+  <div style="padding:28px 56px 32px;max-width:900px">
     <span class="cms-tag" style="display:block;margin-bottom:16px">CMS BINDING: Journal · Single article template</span>
 
-    <div style="margin-bottom:20px">
+    <div style="margin-bottom:14px">
       <span class="cms-tag" style="display:block">CATEGORY · organism 08 · .tag-chip · brass border on dark</span>
       <span style="font:400 10px/1 'DM Sans',sans-serif;letter-spacing:0.16em;color:#C09D68;border:1px solid #8A6A3A;padding:4px 10px;display:inline-block">CASE STUDIES</span>
     </div>
 
     <span class="cms-tag" style="display:block">ARTICLE TITLE · Outfit Regular 36px · #F1ECE5 · 2 lines max</span>
-    <h1 style="font:400 36px/1.15 'Outfit',sans-serif;color:#F1ECE5;margin-bottom:16px;max-width:720px">Amano Hotel London — A Case Study in Atmospheric Hospitality Lighting</h1>
+    <h1 style="font:400 32px/1.15 'Outfit',sans-serif;color:#F1ECE5;margin-bottom:14px;max-width:720px">Amano Hotel London — A Case Study in Atmospheric Hospitality Lighting</h1>
 
     <span class="cms-tag" style="display:block">AUTHOR + DATE · Jost Light 10px · #78726C</span>
-    <p style="font:300 10px/1 'Jost',sans-serif;color:#A8A39E;margin-bottom:20px;letter-spacing:0.06em">By Sarah Whitmore &nbsp;·&nbsp; 12 June 2026</p>
+    <p style="font:300 10px/1 'Jost',sans-serif;color:#A8A39E;margin-bottom:14px;letter-spacing:0.06em">By Sarah Whitmore &nbsp;·&nbsp; 12 June 2026</p>
 
     <div style="height:1px;background:#2E2825"></div>
   </div>

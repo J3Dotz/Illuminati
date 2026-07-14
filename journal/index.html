@@ -48,9 +48,9 @@ button{font-family:inherit;cursor:pointer;border-radius:0}
 .pill{font:400 10px/1 'DM Sans',sans-serif;letter-spacing:0.14em;padding:8px 16px;border:1px solid;cursor:pointer;background:transparent;transition:opacity 200ms ease}
 .pill:hover{opacity:0.7}
 
-.cms-tag{font:400 7px/1 'DM Sans',sans-serif;letter-spacing:0.16em;color:var(--a-text);border:1px dashed rgba(138,106,58,0.55);padding:2px 5px;display:inline-block;margin-bottom:8px}
-.wf-class{font:300 8px/1 'Jost',sans-serif;letter-spacing:0.1em;color:var(--m-text);opacity:0.6;display:block;margin-bottom:8px}
-.dev-note{border-left:2px solid rgba(138,106,58,0.35);padding:8px 12px;margin:12px 0 0;background:rgba(138,106,58,0.04)}
+.cms-tag{display:none!important}
+.wf-class{display:none!important}
+.dev-note{display:none!important}
 .dev-note p{font:300 9px/1.65 'Jost',sans-serif;color:var(--m-text)}
 .dev-note strong{font-weight:400;color:var(--a-text)}
 
@@ -202,19 +202,19 @@ button{font-family:inherit;cursor:pointer;border-radius:0}
 </section>
 
 <!-- ── 02 FEATURED ARTICLE · .section-featured-post ── -->
-<section data-screen-label="02 Featured Article" style="background:var(--g);padding:56px 0">
+<section data-screen-label="02 Featured Article" style="background:var(--g);padding:32px 0">
   <div style="max-width:1328px;margin:0 auto;padding:0 56px">
     <span class="wf-class">.section-featured-post · CMS: Journal · Featured = true</span>
   </div>
   <div class="feat-hzl" style="display:flex;margin:16px 56px 0;border:1px solid var(--r)">
-    <!-- Image 55% -->
-    <div class="feat-img-col img-card" style="width:55%;flex-shrink:0;position:relative;min-height:420px;overflow:hidden">
+    <!-- Image 45%, portrait-leaning -->
+    <div class="feat-img-col img-card" style="width:45%;flex-shrink:0;position:relative;min-height:340px;overflow:hidden">
       <div class="card-img" style="position:absolute;inset:0">
         <image-slot id="feat-img" placeholder="Featured article — atmospheric hospitality interior, warm pendant lighting" src="/Illuminati/uploads/commercial.jpeg" shape="rect" fit="cover" style="position:absolute;inset:0;width:100%;height:100%;display:block"></image-slot>
       </div>
     </div>
     <!-- Content 45% -->
-    <div class="feat-txt-col" style="width:45%;padding:56px;display:flex;flex-direction:column;justify-content:center;border-left:1px solid var(--r)">
+    <div class="feat-txt-col" style="width:55%;padding:40px 56px;display:flex;flex-direction:column;justify-content:center;border-left:1px solid var(--r)">
       <span class="cms-tag">CMS BINDING: Featured Post Fields</span>
       <div style="margin-bottom:16px">
         <span class="cms-tag" style="display:block">CATEGORY · organism 08 · .tag-chip</span>
@@ -250,7 +250,8 @@ button{font-family:inherit;cursor:pointer;border-radius:0}
         <div style="padding:24px 28px 32px">
           <span class="cms-tag" style="display:block;margin-bottom:10px">CMS FIELDS · .card-editorial</span>
           <div style="margin-bottom:14px"><span style="font:400 10px/1 'DM Sans',sans-serif;letter-spacing:0.14em;color:var(--a-text);border:1px solid #8A6A3A;padding:3px 8px;display:inline-block">DESIGN</span></div>
-          <h3 style="font:400 16px/1.3 'Outfit',sans-serif;color:var(--p);margin-bottom:10px">Layering Light: The Case for Multi-Circuit Specification</h3>
+          <h3 style="font:400 16px/1.3 'Outfit',sans-serif;color:var(--p);margin-bottom:8px">Layering Light: The Case for Multi-Circuit Specification</h3>
+          <p style="font:300 12px/1.5 'DM Sans',sans-serif;color:var(--m-text);margin-bottom:12px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">Why splitting a room across independent circuits transforms how a space feels, day and night.</p>
           <p style="font:300 10px/1 'Jost',sans-serif;color:var(--m-text);margin-bottom:18px">3 June 2026</p>
           <a href="/Illuminati/journal/article/" class="lnk" style="font:300 12px/1 'DM Sans',sans-serif">Read →</a>
         </div>
@@ -265,7 +266,8 @@ button{font-family:inherit;cursor:pointer;border-radius:0}
         </div>
         <div style="padding:24px 28px 32px">
           <div style="margin-bottom:14px"><span style="font:400 10px/1 'DM Sans',sans-serif;letter-spacing:0.14em;color:var(--a-text);border:1px solid #8A6A3A;padding:3px 8px;display:inline-block">INDUSTRY NEWS</span></div>
-          <h3 style="font:400 16px/1.3 'Outfit',sans-serif;color:var(--p);margin-bottom:10px">Why Circadian-Tuned Lighting Is Now a Standard Specification</h3>
+          <h3 style="font:400 16px/1.3 'Outfit',sans-serif;color:var(--p);margin-bottom:8px">Why Circadian-Tuned Lighting Is Now a Standard Specification</h3>
+          <p style="font:300 12px/1.5 'DM Sans',sans-serif;color:var(--m-text);margin-bottom:12px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">Tunable colour temperature is moving from wellness buzzword to a baseline residential expectation.</p>
           <p style="font:300 10px/1 'Jost',sans-serif;color:var(--m-text);margin-bottom:18px">28 May 2026</p>
           <a href="/Illuminati/journal/article/" class="lnk" style="font:300 12px/1 'DM Sans',sans-serif">Read →</a>
         </div>
@@ -280,7 +282,8 @@ button{font-family:inherit;cursor:pointer;border-radius:0}
         </div>
         <div style="padding:24px 28px 32px">
           <div style="margin-bottom:14px"><span style="font:400 10px/1 'DM Sans',sans-serif;letter-spacing:0.14em;color:var(--a-text);border:1px solid #8A6A3A;padding:3px 8px;display:inline-block">DESIGN</span></div>
-          <h3 style="font:400 16px/1.3 'Outfit',sans-serif;color:var(--p);margin-bottom:10px">From Brief to Installation: How Our Studio Works with Architects</h3>
+          <h3 style="font:400 16px/1.3 'Outfit',sans-serif;color:var(--p);margin-bottom:8px">From Brief to Installation: How Our Studio Works with Architects</h3>
+          <p style="font:300 12px/1.5 'DM Sans',sans-serif;color:var(--m-text);margin-bottom:12px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">A look inside our process, from first site visit through to final switch-on.</p>
           <p style="font:300 10px/1 'Jost',sans-serif;color:var(--m-text);margin-bottom:18px">19 May 2026</p>
           <a href="/Illuminati/journal/article/" class="lnk" style="font:300 12px/1 'DM Sans',sans-serif">Read →</a>
         </div>
@@ -295,7 +298,8 @@ button{font-family:inherit;cursor:pointer;border-radius:0}
         </div>
         <div style="padding:24px 28px 32px">
           <div style="margin-bottom:14px"><span style="font:400 10px/1 'DM Sans',sans-serif;letter-spacing:0.14em;color:var(--a-text);border:1px solid #8A6A3A;padding:3px 8px;display:inline-block">DESIGN</span></div>
-          <h3 style="font:400 16px/1.3 'Outfit',sans-serif;color:var(--p);margin-bottom:10px">Concentric Series 2026: Designed for Large-Scale Residential Projects</h3>
+          <h3 style="font:400 16px/1.3 'Outfit',sans-serif;color:var(--p);margin-bottom:8px">Concentric Series 2026: Designed for Large-Scale Residential Projects</h3>
+          <p style="font:300 12px/1.5 'DM Sans',sans-serif;color:var(--m-text);margin-bottom:12px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">Sculptural scale for double-height living spaces and grand stairwells.</p>
           <p style="font:300 10px/1 'Jost',sans-serif;color:var(--m-text);margin-bottom:18px">5 May 2026</p>
           <a href="/Illuminati/journal/article/" class="lnk" style="font:300 12px/1 'DM Sans',sans-serif">Read →</a>
         </div>
@@ -310,7 +314,8 @@ button{font-family:inherit;cursor:pointer;border-radius:0}
         </div>
         <div style="padding:24px 28px 32px">
           <div style="margin-bottom:14px"><span style="font:400 10px/1 'DM Sans',sans-serif;letter-spacing:0.14em;color:var(--a-text);border:1px solid #8A6A3A;padding:3px 8px;display:inline-block">INDUSTRY NEWS</span></div>
-          <h3 style="font:400 16px/1.3 'Outfit',sans-serif;color:var(--p);margin-bottom:10px">Trade Partners — The Evolving Role of the Specialist Lighting Showroom</h3>
+          <h3 style="font:400 16px/1.3 'Outfit',sans-serif;color:var(--p);margin-bottom:8px">Trade Partners — The Evolving Role of the Specialist Lighting Showroom</h3>
+          <p style="font:300 12px/1.5 'DM Sans',sans-serif;color:var(--m-text);margin-bottom:12px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">As sourcing moves online, the showroom's role is shifting from catalogue to experience.</p>
           <p style="font:300 10px/1 'Jost',sans-serif;color:var(--m-text);margin-bottom:18px">22 April 2026</p>
           <a href="/Illuminati/journal/article/" class="lnk" style="font:300 12px/1 'DM Sans',sans-serif">Read →</a>
         </div>
@@ -325,7 +330,8 @@ button{font-family:inherit;cursor:pointer;border-radius:0}
         </div>
         <div style="padding:24px 28px 32px">
           <div style="margin-bottom:14px"><span style="font:400 10px/1 'DM Sans',sans-serif;letter-spacing:0.14em;color:var(--a-text);border:1px solid #8A6A3A;padding:3px 8px;display:inline-block">INSTALLATIONS</span></div>
-          <h3 style="font:400 16px/1.3 'Outfit',sans-serif;color:var(--p);margin-bottom:10px">A-LED in Practice: Commissioning at Cannon Place, EC4</h3>
+          <h3 style="font:400 16px/1.3 'Outfit',sans-serif;color:var(--p);margin-bottom:8px">A-LED in Practice: Commissioning at Cannon Place, EC4</h3>
+          <p style="font:300 12px/1.5 'DM Sans',sans-serif;color:var(--m-text);margin-bottom:12px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">Inside the architectural LED specification behind one of the City's newest office fit-outs.</p>
           <p style="font:300 10px/1 'Jost',sans-serif;color:var(--m-text);margin-bottom:18px">11 April 2026</p>
           <a href="/Illuminati/journal/article/" class="lnk" style="font:300 12px/1 'DM Sans',sans-serif">Read →</a>
         </div>
