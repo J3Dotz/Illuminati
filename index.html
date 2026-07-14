@@ -339,20 +339,33 @@ button{font-family:inherit;cursor:pointer;border-radius:0}
 
 
 <!-- ════════════════════ 04 WHO WE ARE / VISION ════════════════════ -->
-<section data-screen-label="04 Identity" class="id-flex" style="display:flex;min-height:560px">
-  <div class="sr-l" style="flex:1;background:#1A1714;padding:80px;display:flex;flex-direction:column;justify-content:center">
-    <p style="font:400 11px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:var(--a-text);margin-bottom:12px">WHO WE ARE</p>
+<section data-screen-label="04 Who We Are" style="min-height:65vh;position:relative;overflow:hidden;display:flex;flex-direction:column">
+  <div data-px="0.16" style="position:absolute;top:-12%;left:0;right:0;bottom:-12%;z-index:0">
+    <image-slot id="identity-img" placeholder="Celebrated by interior designers and architects — editorial, aspirational interior photography" src="uploads/illuminati-lighting-residential-project.webp" shape="rect" fit="cover" style="position:absolute;inset:0;width:100%;height:100%;display:block"></image-slot>
+    <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(26,23,20,0.95) 0%,rgba(26,23,20,0.35) 55%,rgba(26,23,20,0.08) 100%)"></div>
+  </div>
+  <div style="flex:1;position:relative;z-index:1"></div>
+  <div class="sr" style="position:relative;z-index:1;padding:64px 56px;max-width:560px">
+    <p style="font:400 11px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:#C09D68;margin-bottom:12px">WHO WE ARE</p>
     <div style="width:40px;height:1px;background:#8A6A3A;margin-bottom:24px"></div>
     <h2 style="font:400 28px/1.2 'Outfit',sans-serif;color:#F1ECE5;margin-bottom:24px">Celebrated by interior designers<br>and architects the world over.</h2>
-    <p style="font:300 14px/1.85 'DM Sans',sans-serif;color:var(--m-text);margin-bottom:32px;max-width:440px">Illuminati are celebrated by interior designers, architects and retailers the world over. Our team continues to develop a collection of lighting that combines the finest materials with skill and superior craftsmanship.</p>
+    <p style="font:300 14px/1.85 'DM Sans',sans-serif;color:rgba(241,236,229,0.85);margin-bottom:32px;max-width:440px">Illuminati are celebrated by interior designers, architects and retailers the world over. Our team continues to develop a collection of lighting that combines the finest materials with skill and superior craftsmanship.</p>
     <a class="lnk-w" style="font:300 14px/1 'DM Sans',sans-serif">Our story →</a>
   </div>
-  <div class="sr-r" style="flex:1;background:var(--s);padding:80px;display:flex;flex-direction:column;justify-content:center">
+</section>
+
+
+<!-- ════════════════════ 04B WHERE WE'RE GOING ════════════════════ -->
+<section data-screen-label="04b Where We're Going" style="background:var(--s);display:flex;min-height:480px">
+  <div class="sr-l" style="flex:1;padding:80px;display:flex;flex-direction:column;justify-content:center">
     <p style="font:400 11px/1 'DM Sans',sans-serif;letter-spacing:0.2em;color:var(--a-text);margin-bottom:12px">WHERE WE'RE GOING</p>
     <div style="width:40px;height:1px;background:#8A6A3A;margin-bottom:24px"></div>
     <h2 style="font:400 28px/1.2 'Outfit',sans-serif;color:var(--p);margin-bottom:24px">An atelier built for<br>the next generation of design.</h2>
     <p style="font:300 14px/1.85 'DM Sans',sans-serif;color:var(--m-text);margin-bottom:32px;max-width:440px">We work in close collaboration with interior designers, architects and developers — functioning less like a supplier and more like a design partner embedded in your project from first brief to final installation.</p>
     <a class="lnk" style="font:300 14px/1 'DM Sans',sans-serif">Work with us →</a>
+  </div>
+  <div class="sr-r" style="flex:1;position:relative;min-height:360px">
+    <image-slot id="identity-going-img" placeholder="Atelier at work — considered, contemporary design process" src="uploads/商业空间.jpeg" shape="rect" fit="cover" style="position:absolute;inset:0;width:100%;height:100%;display:block"></image-slot>
   </div>
 </section>
 
