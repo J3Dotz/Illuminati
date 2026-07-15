@@ -144,10 +144,10 @@ button{font-family:inherit;cursor:pointer;border-radius:0}
       </div>
     </div>
     <a href="/Illuminati/" style="position:absolute;left:50%;transform:translateX(-50%);display:block">
-      <sc-if value="{{ isDark }}" hint-placeholder-val="{{ false }}">
+      <sc-if value="{{ isDark }}" hint-placeholder-val="{{ true }}">
         <img src="/Illuminati/uploads/Illuminati-White.svg" style="height:20px;display:block" alt="Illuminati Lighting">
       </sc-if>
-      <sc-if value="{{ isLight }}" hint-placeholder-val="{{ true }}">
+      <sc-if value="{{ isLight }}" hint-placeholder-val="{{ false }}">
         <img src="/Illuminati/uploads/Illuminati-Black.svg" style="height:20px;display:block" alt="Illuminati Lighting">
       </sc-if>
     </a>
@@ -241,10 +241,10 @@ button{font-family:inherit;cursor:pointer;border-radius:0}
     <div style="height:56px;display:flex;align-items:center;padding:0 40px;position:relative">
       <div style="flex:1"></div>
       <div style="pointer-events:none">
-        <sc-if value="{{ isDark }}" hint-placeholder-val="{{ false }}">
+        <sc-if value="{{ isDark }}" hint-placeholder-val="{{ true }}">
           <img src="/Illuminati/uploads/Illuminati-White.svg" style="height:20px;display:block" alt="Illuminati Lighting">
         </sc-if>
-        <sc-if value="{{ isLight }}" hint-placeholder-val="{{ true }}">
+        <sc-if value="{{ isLight }}" hint-placeholder-val="{{ false }}">
           <img src="/Illuminati/uploads/Illuminati-Black.svg" style="height:20px;display:block" alt="Illuminati Lighting">
         </sc-if>
       </div>
@@ -771,7 +771,7 @@ button{font-family:inherit;cursor:pointer;border-radius:0}
   &quot;darkMode&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: false, &quot;section&quot;: &quot;Appearance&quot; }
 }">
 class Component extends DCLogic {
-  state = { dark: false, menuOpen: false, slideIdx: 0, navVariant: localStorage.getItem('illu_nav') || 'mega', activeCat: null };
+  state = { dark: true, menuOpen: false, slideIdx: 0, navVariant: localStorage.getItem('illu_nav') || 'mega', activeCat: null };
 
   componentDidMount() {
     // ── Nav variant cross-tab sync ──
